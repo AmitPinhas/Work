@@ -1,0 +1,25 @@
+#A hack to ignore * without extensions
+# Ignore ALL files(*), but not with extension (!*.*) and not directories (!*/)
+*
+!*.*
+!*/
+#Ignore 32bit executables, objects and libraries
+*.o
+*.d
+*.32
+*.64
+*.exe
+*.gch
+*.out
+*.log
+*.err
+*.tar
+*.zip
+*.vpp.bak*
+*.vpp.lck
+#Ignore depends make product
+depends
+#Verify some important files
+!Makefile
+!makefile
+.vscode
