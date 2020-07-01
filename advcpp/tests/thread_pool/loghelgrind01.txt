@@ -1,0 +1,143 @@
+==6222== Helgrind, a thread error detector
+==6222== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==6222== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==6222== Command: ./threadPoolTest
+==6222== Parent PID: 6221
+==6222== 
+==6222== ---Thread-Announcement------------------------------------------
+==6222== 
+==6222== Thread #1 is the program's root thread
+==6222== 
+==6222== ----------------------------------------------------------------
+==6222== 
+==6222== Thread #1: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==6222==    at 0x4C349E5: pthread_cond_signal_WRK (hg_intercepts.c:1384)
+==6222==    by 0x4C381A0: pthread_cond_signal@* (hg_intercepts.c:1405)
+==6222==    by 0x111A3D: advcpp::ConditionalVariable::Notify() (conditional_variable.inl:29)
+==6222==    by 0x111D23: advcpp::WaitableQueue<std::tr1::shared_ptr<advcpp::ITask> >::Enqueue(std::tr1::shared_ptr<advcpp::ITask> const&) (waitable_queue.inl:55)
+==6222==    by 0x113EC8: advcpp::ThreadPool::Submit(std::tr1::shared_ptr<advcpp::ITask>) (thread_pool.cpp:35)
+==6222==    by 0x10E5C8: first_test() (threadPoolTest.cpp:57)
+==6222==    by 0x10EE39: main (threadPoolTest.cpp:87)
+==6222== 
+==6222== ---Thread-Announcement------------------------------------------
+==6222== 
+==6222== Thread #4 was created
+==6222==    at 0x572387E: clone (clone.S:71)
+==6222==    by 0x53EAEC4: create_thread (createthread.c:100)
+==6222==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==6222==    by 0x4C36C91: pthread_create_WRK (hg_intercepts.c:427)
+==6222==    by 0x4C37D75: pthread_create@* (hg_intercepts.c:460)
+==6222==    by 0x113844: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.cpp:18)
+==6222==    by 0x114262: advcpp::ThreadPool::createThreads(unsigned long) (thread_pool.cpp:103)
+==6222==    by 0x114012: advcpp::ThreadPool::AddWorkers(unsigned long) (thread_pool.cpp:76)
+==6222==    by 0x10E5ED: first_test() (threadPoolTest.cpp:60)
+==6222==    by 0x10EE39: main (threadPoolTest.cpp:87)
+==6222== 
+==6222== ----------------------------------------------------------------
+==6222== 
+==6222== Thread #4: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==6222==    at 0x4C349E5: pthread_cond_signal_WRK (hg_intercepts.c:1384)
+==6222==    by 0x4C381A0: pthread_cond_signal@* (hg_intercepts.c:1405)
+==6222==    by 0x111A3D: advcpp::ConditionalVariable::Notify() (conditional_variable.inl:29)
+==6222==    by 0x111E82: advcpp::WaitableQueue<std::tr1::shared_ptr<advcpp::ITask> >::Dequeue(std::tr1::shared_ptr<advcpp::ITask>&) (waitable_queue.inl:67)
+==6222==    by 0x1144A7: advcpp::ThreadPool::Performer::Run() (thread_pool.cpp:138)
+==6222==    by 0x113A7C: advcpp::Thread::thunk(void*) (thread.inl:36)
+==6222==    by 0x4C36E85: mythread_wrapper (hg_intercepts.c:389)
+==6222==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==6222==    by 0x572388E: clone (clone.S:95)
+==6222== 
+==6222== ---Thread-Announcement------------------------------------------
+==6222== 
+==6222== Thread #2 was created
+==6222==    at 0x572387E: clone (clone.S:71)
+==6222==    by 0x53EAEC4: create_thread (createthread.c:100)
+==6222==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==6222==    by 0x4C36C91: pthread_create_WRK (hg_intercepts.c:427)
+==6222==    by 0x4C37D75: pthread_create@* (hg_intercepts.c:460)
+==6222==    by 0x113844: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.cpp:18)
+==6222==    by 0x114262: advcpp::ThreadPool::createThreads(unsigned long) (thread_pool.cpp:103)
+==6222==    by 0x113DB8: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:23)
+==6222==    by 0x10E4F9: first_test() (threadPoolTest.cpp:46)
+==6222==    by 0x10EE39: main (threadPoolTest.cpp:87)
+==6222== 
+==6222== ----------------------------------------------------------------
+==6222== 
+==6222== Thread #2: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==6222==    at 0x4C349E5: pthread_cond_signal_WRK (hg_intercepts.c:1384)
+==6222==    by 0x4C381A0: pthread_cond_signal@* (hg_intercepts.c:1405)
+==6222==    by 0x111A3D: advcpp::ConditionalVariable::Notify() (conditional_variable.inl:29)
+==6222==    by 0x111E82: advcpp::WaitableQueue<std::tr1::shared_ptr<advcpp::ITask> >::Dequeue(std::tr1::shared_ptr<advcpp::ITask>&) (waitable_queue.inl:67)
+==6222==    by 0x1144A7: advcpp::ThreadPool::Performer::Run() (thread_pool.cpp:138)
+==6222==    by 0x113A7C: advcpp::Thread::thunk(void*) (thread.inl:36)
+==6222==    by 0x4C36E85: mythread_wrapper (hg_intercepts.c:389)
+==6222==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==6222==    by 0x572388E: clone (clone.S:95)
+==6222== 
+==6222== ---Thread-Announcement------------------------------------------
+==6222== 
+==6222== Thread #5 was created
+==6222==    at 0x572387E: clone (clone.S:71)
+==6222==    by 0x53EAEC4: create_thread (createthread.c:100)
+==6222==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==6222==    by 0x4C36C91: pthread_create_WRK (hg_intercepts.c:427)
+==6222==    by 0x4C37D75: pthread_create@* (hg_intercepts.c:460)
+==6222==    by 0x113844: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.cpp:18)
+==6222==    by 0x114262: advcpp::ThreadPool::createThreads(unsigned long) (thread_pool.cpp:103)
+==6222==    by 0x114012: advcpp::ThreadPool::AddWorkers(unsigned long) (thread_pool.cpp:76)
+==6222==    by 0x10E5ED: first_test() (threadPoolTest.cpp:60)
+==6222==    by 0x10EE39: main (threadPoolTest.cpp:87)
+==6222== 
+==6222== ----------------------------------------------------------------
+==6222== 
+==6222== Thread #5: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==6222==    at 0x4C349E5: pthread_cond_signal_WRK (hg_intercepts.c:1384)
+==6222==    by 0x4C381A0: pthread_cond_signal@* (hg_intercepts.c:1405)
+==6222==    by 0x111A3D: advcpp::ConditionalVariable::Notify() (conditional_variable.inl:29)
+==6222==    by 0x111E82: advcpp::WaitableQueue<std::tr1::shared_ptr<advcpp::ITask> >::Dequeue(std::tr1::shared_ptr<advcpp::ITask>&) (waitable_queue.inl:67)
+==6222==    by 0x1144A7: advcpp::ThreadPool::Performer::Run() (thread_pool.cpp:138)
+==6222==    by 0x113A7C: advcpp::Thread::thunk(void*) (thread.inl:36)
+==6222==    by 0x4C36E85: mythread_wrapper (hg_intercepts.c:389)
+==6222==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==6222==    by 0x572388E: clone (clone.S:95)
+==6222== 
+==6222== ---Thread-Announcement------------------------------------------
+==6222== 
+==6222== Thread #3 was created
+==6222==    at 0x572387E: clone (clone.S:71)
+==6222==    by 0x53EAEC4: create_thread (createthread.c:100)
+==6222==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==6222==    by 0x4C36C91: pthread_create_WRK (hg_intercepts.c:427)
+==6222==    by 0x4C37D75: pthread_create@* (hg_intercepts.c:460)
+==6222==    by 0x113844: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.cpp:18)
+==6222==    by 0x114262: advcpp::ThreadPool::createThreads(unsigned long) (thread_pool.cpp:103)
+==6222==    by 0x113DB8: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:23)
+==6222==    by 0x10E4F9: first_test() (threadPoolTest.cpp:46)
+==6222==    by 0x10EE39: main (threadPoolTest.cpp:87)
+==6222== 
+==6222== ----------------------------------------------------------------
+==6222== 
+==6222== Thread #3: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==6222==    at 0x4C349E5: pthread_cond_signal_WRK (hg_intercepts.c:1384)
+==6222==    by 0x4C381A0: pthread_cond_signal@* (hg_intercepts.c:1405)
+==6222==    by 0x111A3D: advcpp::ConditionalVariable::Notify() (conditional_variable.inl:29)
+==6222==    by 0x111E82: advcpp::WaitableQueue<std::tr1::shared_ptr<advcpp::ITask> >::Dequeue(std::tr1::shared_ptr<advcpp::ITask>&) (waitable_queue.inl:67)
+==6222==    by 0x1144A7: advcpp::ThreadPool::Performer::Run() (thread_pool.cpp:138)
+==6222==    by 0x113A7C: advcpp::Thread::thunk(void*) (thread.inl:36)
+==6222==    by 0x4C36E85: mythread_wrapper (hg_intercepts.c:389)
+==6222==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==6222==    by 0x572388E: clone (clone.S:95)
+==6222== 
+==6222== 
+==6222== Process terminating with default action of signal 2 (SIGINT)
+==6222==    at 0x53EBD2D: __pthread_timedjoin_ex (pthread_join_common.c:89)
+==6222==    by 0x4C33F36: pthread_join_WRK (hg_intercepts.c:553)
+==6222==    by 0x4C37D80: pthread_join (hg_intercepts.c:572)
+==6222==    by 0x113951: advcpp::Thread::Join() (thread.cpp:47)
+==6222==    by 0x11414C: advcpp::ThreadPool::RemoveWorkers(unsigned long) (thread_pool.cpp:92)
+==6222==    by 0x10E66B: first_test() (threadPoolTest.cpp:69)
+==6222==    by 0x10EE39: main (threadPoolTest.cpp:87)
+==6222== 
+==6222== Use --history-level=approx or =none to gain increased speed, at
+==6222== the cost of reduced accuracy of conflicting-access information
+==6222== For lists of detected and suppressed errors, rerun with: -s
+==6222== ERROR SUMMARY: 148 errors from 5 contexts (suppressed: 650 from 21)

@@ -1,0 +1,13 @@
+==3246== Memcheck, a memory error detector
+==3246== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3246== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==3246== Command: ./sorts.out 100 500 1000
+==3246== 
+==3246== 
+==3246== HEAP SUMMARY:
+==3246==     in use at exit: 0 bytes in 0 blocks
+==3246==   total heap usage: 229,136 allocs, 229,136 frees, 33,752,796,832 bytes allocated
+==3246== 
+==3246== All heap blocks were freed -- no leaks are possible
+==3246== 
+==3246== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

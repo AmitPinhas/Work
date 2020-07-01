@@ -1,0 +1,478 @@
+==9247== Helgrind, a thread error detector
+==9247== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==9247== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==9247== Command: ./thread_pool_test
+==9247== Parent PID: 9136
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #1 is the program's root thread
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #1: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x113732: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Enqueue(advcpp::SharedPointer<advcpp::ITask> const&) (waitable_queue.inl:23)
+==9247==    by 0x1161B7: advcpp::ThreadPool::DispatchTask(advcpp::SharedPointer<advcpp::ITask>) (thread_pool.cpp:50)
+==9247==    by 0x10EADE: base_test() (thread_pool_test.cpp:52)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #4 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #4: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #3 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #3: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Possible data race during read of size 8 at 0x32D1D8 by thread #3
+==9247== Locks held: none
+==9247==    at 0x4F55BBE: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F56026: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110C96: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== This conflicts with a previous write of size 8 by thread #4
+==9247== Locks held: none
+==9247==    at 0x4F55C6A: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F56026: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110C96: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247==  Address 0x32d1d8 is 24 bytes inside data symbol "_ZSt4cout@@GLIBCXX_3.4"
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #5 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #5: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Possible data race during write of size 8 at 0x32D1D8 by thread #4
+==9247== Locks held: none
+==9247==    at 0x4F55C6A: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F55F57: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110CA3: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== This conflicts with a previous read of size 8 by thread #3
+==9247== Locks held: none
+==9247==    at 0x4F55BBE: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F56026: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110C96: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247==  Address 0x32d1d8 is 24 bytes inside data symbol "_ZSt4cout@@GLIBCXX_3.4"
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Possible data race during write of size 1 at 0x5DA2C85 by thread #5
+==9247== Locks held: none
+==9247==    at 0x4C3C546: mempcpy (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x568D993: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
+==9247==    by 0x5681976: fwrite (iofwrite.c:39)
+==9247==    by 0x4F55CB3: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F56026: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110C96: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== This conflicts with a previous write of size 1 by thread #4
+==9247== Locks held: none
+==9247==    at 0x4C3C546: mempcpy (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x568D993: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
+==9247==    by 0x5681976: fwrite (iofwrite.c:39)
+==9247==    by 0x4F55CB3: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F56026: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110C96: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==  Address 0x5da2c85 is 5 bytes inside a block of size 1,024 alloc'd
+==9247==    at 0x4C30F2F: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x568018B: _IO_file_doallocate (filedoalloc.c:101)
+==9247==    by 0x5690378: _IO_doallocbuf (genops.c:365)
+==9247==    by 0x568F497: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+==9247==    by 0x568D9EC: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+==9247==    by 0x5681976: fwrite (iofwrite.c:39)
+==9247==    by 0x10F905: main (thread_pool_test.cpp:131)
+==9247==  Block was alloc'd by thread #1
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Possible data race during write of size 8 at 0x32D1D8 by thread #5
+==9247== Locks held: none
+==9247==    at 0x4F55C6A: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F56026: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110C96: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== This conflicts with a previous read of size 8 by thread #3
+==9247== Locks held: none
+==9247==    at 0x4F55BBE: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F56026: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110C96: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247==  Address 0x32d1d8 is 24 bytes inside data symbol "_ZSt4cout@@GLIBCXX_3.4"
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Possible data race during write of size 1 at 0x5DA2C86 by thread #5
+==9247== Locks held: none
+==9247==    at 0x4C3C56C: mempcpy (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x568D993: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
+==9247==    by 0x5681976: fwrite (iofwrite.c:39)
+==9247==    by 0x4F55CB3: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F55F57: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110CA3: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== This conflicts with a previous write of size 1 by thread #4
+==9247== Locks held: none
+==9247==    at 0x4C3C56C: mempcpy (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x568D993: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
+==9247==    by 0x5681976: fwrite (iofwrite.c:39)
+==9247==    by 0x4F55CB3: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F55F57: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110CA3: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==  Address 0x5da2c86 is 6 bytes inside a block of size 1,024 alloc'd
+==9247==    at 0x4C30F2F: malloc (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x568018B: _IO_file_doallocate (filedoalloc.c:101)
+==9247==    by 0x5690378: _IO_doallocbuf (genops.c:365)
+==9247==    by 0x568F497: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+==9247==    by 0x568D9EC: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+==9247==    by 0x5681976: fwrite (iofwrite.c:39)
+==9247==    by 0x10F905: main (thread_pool_test.cpp:131)
+==9247==  Block was alloc'd by thread #1
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #9 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #9: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #7 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #7: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #11 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #11: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #6 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #6: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #8 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #8: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #2 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #2: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ---Thread-Announcement------------------------------------------
+==9247== 
+==9247== Thread #10 was created
+==9247==    at 0x572387E: clone (clone.S:71)
+==9247==    by 0x53EAEC4: create_thread (createthread.c:100)
+==9247==    by 0x53EAEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==9247==    by 0x4C36A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x111C28: advcpp::Thread::Thread(advcpp::IRunnable*, advcpp::Thread::Policy) (thread.inl:31)
+==9247==    by 0x11172D: advcpp::Worker::Worker(advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >&) (worker.cpp:19)
+==9247==    by 0x112D8B: advcpp::ThreadGroup::AddWorker(unsigned long) (thread_group.cpp:26)
+==9247==    by 0x115FC5: advcpp::ThreadPool::ThreadPool(unsigned long, unsigned long) (thread_pool.cpp:18)
+==9247==    by 0x10EA85: base_test() (thread_pool_test.cpp:48)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #10: pthread_cond_{signal,broadcast}: dubious: associated lock is not held by any thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x11EB36: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Dequeue(advcpp::SharedPointer<advcpp::ITask>&) (waitable_queue.inl:40)
+==9247==    by 0x11E7A2: advcpp::PoolRoutine::Run() (pool_routine.cpp:21)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Possible data race during read of size 8 at 0x32D1D8 by thread #11
+==9247== Locks held: none
+==9247==    at 0x4F55BBE: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F55F57: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110CA3: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247== 
+==9247== This conflicts with a previous write of size 8 by thread #4
+==9247== Locks held: none
+==9247==    at 0x4F55C6A: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x4F56026: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==9247==    by 0x110C96: advcpp::TestTask::Run() (task.hpp:47)
+==9247==    by 0x11E81C: advcpp::PoolRoutine::Run() (pool_routine.cpp:29)
+==9247==    by 0x111BB6: advcpp::Thread::thunk(void*) (thread.inl:13)
+==9247==    by 0x4C36C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x53EA6DA: start_thread (pthread_create.c:463)
+==9247==    by 0x572388E: clone (clone.S:95)
+==9247==  Address 0x32d1d8 is 24 bytes inside data symbol "_ZSt4cout@@GLIBCXX_3.4"
+==9247== 
+==9247== ----------------------------------------------------------------
+==9247== 
+==9247== Thread #1: pthread_cond_{signal,broadcast}: associated lock is not held by calling thread
+==9247==    at 0x4C34714: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x116DAE: advcpp::CondVar::Notify() (cond_var.cpp:30)
+==9247==    by 0x113732: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Enqueue(advcpp::SharedPointer<advcpp::ITask> const&) (waitable_queue.inl:23)
+==9247==    by 0x1161B7: advcpp::ThreadPool::DispatchTask(advcpp::SharedPointer<advcpp::ITask>) (thread_pool.cpp:50)
+==9247==    by 0x10EADE: base_test() (thread_pool_test.cpp:52)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== 
+==9247== Process terminating with default action of signal 2 (SIGINT)
+==9247==    at 0x53F09F3: futex_wait_cancelable (futex-internal.h:88)
+==9247==    by 0x53F09F3: __pthread_cond_wait_common (pthread_cond_wait.c:502)
+==9247==    by 0x53F09F3: pthread_cond_wait@@GLIBC_2.3.2 (pthread_cond_wait.c:655)
+==9247==    by 0x4C36DC3: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==9247==    by 0x113E74: void advcpp::CondVar::Wait<advcpp::IsFull<advcpp::SharedPointer<advcpp::ITask> > >(advcpp::Mutex&, advcpp::IsFull<advcpp::SharedPointer<advcpp::ITask> > const&) (cond_var.hpp:52)
+==9247==    by 0x1136F7: advcpp::WaitableQueue<advcpp::SharedPointer<advcpp::ITask> >::Enqueue(advcpp::SharedPointer<advcpp::ITask> const&) (waitable_queue.inl:19)
+==9247==    by 0x1161B7: advcpp::ThreadPool::DispatchTask(advcpp::SharedPointer<advcpp::ITask>) (thread_pool.cpp:50)
+==9247==    by 0x10EADE: base_test() (thread_pool_test.cpp:52)
+==9247==    by 0x10FD74: main (thread_pool_test.cpp:131)
+==9247== 
+==9247== For counts of detected and suppressed errors, rerun with: -v
+==9247== Use --history-level=approx or =none to gain increased speed, at
+==9247== the cost of reduced accuracy of conflicting-access information
+==9247== ERROR SUMMARY: 599449 errors from 18 contexts (suppressed: 2222671 from 87)
