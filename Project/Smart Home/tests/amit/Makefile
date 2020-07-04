@@ -4,7 +4,7 @@ CXX = $(CC)
 CPPFLAGS += $(addprefix -I,$(INC_DIRS))
 CPPFLAGS += -MMD -MP
 
-CFLAGS = -g3 -pedantic -Wall -Wextra 
+CFLAGS = -g3 -pedantic -Wall -Wextra -fPIC
 CXXFLAGS = $(CFLAGS) 
 CXXFLAGS += -std=c++17 
 CXXFLAGS += -O0
@@ -33,7 +33,7 @@ test: $(TARGET)
 #datafile: 
 #	python3.7 genprimes.py > datafile
 	 
-$(TARGET): $(OBJECTS)
+$(TARGET): $(OBJECTS) -ldl
 
 clean:
 	rm -f $(OBJECTS) $(TARGET) $(DEPENDS) *.d *.txt
