@@ -6,14 +6,14 @@
 #include "trick.h"
 #include "UI.h"
 
-/* ------------------------------------------------------------ define ----------------------------------------------------------------------------- */
+/* ------------------ define --------------- */
 
 #define NUMBER_PLAYERS 4
 #define HAND_SIZE 13
 #define NUM_OF_TRICKS 13
 #define TRUE 1
 
-/* ------------------------------------------------------------ struct ----------------------------------------------------------------------------- */
+/* ----------------- struct ---------------- */
 
 struct Round
 {
@@ -21,16 +21,16 @@ struct Round
 };
 
 
-/* --------------------------------------------------------- local functions ------------------------------------------------------------------------*/
+/* ------------ local functions ------------ */
 void DestroyPlayers(Player **_arrayPlayers);
 static void RoundCreatePlayers(Round *_round);
 static void DealCards(Round *_round , Deck *_ptrFullDeck);
 static int PlayTricks(Round *_round , int _numberRound);
 static int TrickFirstLead(  Player **_players);
 
-/* ========================================================== Round API func ======================================================================= */
+/* =========== Round API func =============== */
 
-/* ------------------------------------------------------------Create Round------------------------------------------------------------------------- */
+/* ------------Create Round------------------ */
 Round* CreateRound()
 {
 	Round *ptrRound ;
@@ -51,7 +51,7 @@ Round* CreateRound()
 	return ptrRound;
 }
 
-/* --------------------------------------------------------- Destroy Round ------------------------------------------------------------------------- */
+/* --------------- Destroy Round ----------- */
 void DestroyRound(Round **_round)
 {
 	if ( (_round != NULL) && (*_round != NULL) )
@@ -63,7 +63,7 @@ void DestroyRound(Round **_round)
 	return;
 }
 
-/* ----------------------------------------------------------- Play round -------------------------------------------------------------------------- */
+/* --------------- Play round --------------- */
 void PlayRound(Round *_round)
 {
 	Deck *ptrFullDeck;
@@ -95,7 +95,7 @@ void PlayRound(Round *_round)
 }
 
 
-/* ========================================================= local functions ====================================================================== */
+/* ================ local functions ======== */
 void DestroyPlayers(Player **_arrayPlayers)
 {
 	int index ;
@@ -106,7 +106,7 @@ void DestroyPlayers(Player **_arrayPlayers)
 	}
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------- */
 static void RoundCreatePlayers(Round *_round)
 {
 	int indexPlayer ;
@@ -119,7 +119,7 @@ static void RoundCreatePlayers(Round *_round)
 	}
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------- */
 static void DealCards(Round *_round , Deck *_ptrFullDeck)
 {
 	int indexPlayer , indexCards=0 , indextmp ;
@@ -135,7 +135,7 @@ static void DealCards(Round *_round , Deck *_ptrFullDeck)
 
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------- */
 static int PlayTricks(Round *_round, int _numberRound)
 {
 	Trick *ptrTrick;
@@ -166,7 +166,7 @@ static int PlayTricks(Round *_round, int _numberRound)
 	return maxPoints;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------- */
 static int TrickFirstLead(Player **_players)
 {
 	int index ;
