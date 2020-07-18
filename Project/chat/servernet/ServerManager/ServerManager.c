@@ -37,10 +37,10 @@
 
 /* --------------------------- struct ------------------------------ */
 struct ServerManager{
-	Server *m_serverNet ;
-	User   *m_users ;
-	Group  *m_groups ;
-	fd_set	m_loginFds ;
+	Server *m_serverNet;
+	User   *m_users;
+	Group  *m_groups;
+	fd_set	m_loginFds;
 };
 
 

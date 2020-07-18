@@ -3,7 +3,6 @@
 #include "i_event.hpp"
 #include "fire_event.hpp"
 #include "send_events.hpp"
-#include <iostream> // cout , remove
 
 using namespace advcpp;
 
