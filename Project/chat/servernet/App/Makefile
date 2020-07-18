@@ -11,6 +11,8 @@ $(TARGET): $(SRCS)
 clean:
 	 rm -f $(TARGET) $(OBJS)	 
 
+test: $(TARGET)
+	./$(TARGET)
 	 
 	 
 	 

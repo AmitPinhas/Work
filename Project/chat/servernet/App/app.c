@@ -9,5 +9,5 @@ int main()
 	
 	ServerMangementRun(newServer);
 	
-	return 0 ;
+	return 0;
 }
