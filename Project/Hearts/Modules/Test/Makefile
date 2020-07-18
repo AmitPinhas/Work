@@ -1,5 +1,5 @@
 
-TARGET= hearts_test.out
+TARGET= hearts_test
 CC= gcc
 CFLAGS= -ansi -g -pedantic -Wall -Werror -I../include
 OBJS= 
@@ -8,5 +8,8 @@ $(TARGET): $(SRCS)
 	 $(CC) $(CFLAGS) -o $(TARGET) $(SRCS) 
 clean:
 	 rm -f $(TARGET) $(OBJS)	 
+
+test: $(TARGET)
+	./$(TARGET)
 
 	 
