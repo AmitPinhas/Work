@@ -34,7 +34,7 @@ void DestroyTrick(Trick **_trick);
  	     Output: no output .
 	      Error: no error.
 */
-int PlayTrick(Trick *_trick , Player **_players , int _indexStart  , int _tricknum );
+int PlayTrick(Trick *_trick , Player **_players , int _indexStart  , int _tricknum);
 /*---------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 #endif /* __TRICK_H__ */
