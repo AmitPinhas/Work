@@ -1,5 +1,5 @@
 #include <stdio.h>  /* printf */
-#include "../include/UI.h" /* API statements */ 
+#include "UI.h" /* API statements */ 
 
 
 #define SIZE_TABLE 4
