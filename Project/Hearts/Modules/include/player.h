@@ -27,7 +27,7 @@ typedef struct Player Player;
 	      Error: new pointer to player - pointer creation successfully completed .
 	             NULL - allocation failed .   
 */
-Player* CreatePlayer(char *_name , TypePlayer _type );
+Player* CreatePlayer(char *_name , TypePlayer _type);
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
 /*
 	Description: free player .
@@ -54,7 +54,7 @@ void SetPoints(Player *_player , int _point);
 */
 int GetPoints(Player *_player);
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
-void PlayerSetCardInHand( Player *_player ,int _index , Card *_card);
+void PlayerSetCardInHand(Player *_player ,int _index , Card *_card);
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
 Hand* GetHand(Player *_player);
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
