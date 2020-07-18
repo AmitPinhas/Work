@@ -1,7 +1,7 @@
 #ifndef __CARD_H__  /* Avoiding a double statement */
 #define __CARD_H__
 
-/* ========================================================== Card typedef ======================================================================== */ 
+/* =============== Card typedef ============= */ 
 
   /* rank card */
 typedef enum { TWO , THREE , FOUR , FIVE , SIX , SEVEN , EIGHT , NINE , TEN , JACK , QUEEN , KING , ACE } Rank ;
@@ -13,7 +13,7 @@ typedef enum { HEART , SPADES , DIAMOND , CLUB } Suite ;
 typedef struct Card Card;
 
 
-/* ========================================================== Card API ============================================================================ */ 
+/* ================ Card API ================ */ 
 /*
 	Description: make pointer to a new card .
 	      Input: a) suite .
@@ -25,7 +25,7 @@ typedef struct Card Card;
 */
 Card* CreateCard(Suite _suite ,Rank _rank);
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------- */
 /*
 	Description: free pointer card and null this pointer .
 	      Input: address of pointer to card .
@@ -34,7 +34,7 @@ Card* CreateCard(Suite _suite ,Rank _rank);
 	 complexity: O(1) . (destroy one card)    
 */
 void DestroyCard(Card **_card);
-/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------- */
 /*
 	Description: get suite card .
 	      Input: a) pointer to card .
@@ -42,8 +42,8 @@ void DestroyCard(Card **_card);
 	      Error: no error  .	             
 	 complexity: O(1) .     
 */
-Suite GetSuite( const Card *_card );
-/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+Suite GetSuite(const Card *_card);
+/* ------------------------------------------ */
 /*
 	Description: get rank card .
 	      Input: a) pointer to card .
@@ -51,8 +51,8 @@ Suite GetSuite( const Card *_card );
 	      Error: no error  .	             
 	 complexity: O(1) .     
 */
-Rank GetRank( const Card *_card );
-/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+Rank GetRank(const Card *_card);
+/* ------------------------------------------ */
 /*
 	Description: get point card .
 	      Input: a) pointer to card .
@@ -61,7 +61,6 @@ Rank GetRank( const Card *_card );
 	 complexity: O(1) .     
 */
 int GetPoint(const Card *_card);
-
 
 
 #endif /* __CARD_H__ */
