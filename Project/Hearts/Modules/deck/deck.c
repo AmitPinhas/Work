@@ -2,7 +2,7 @@
 #include <time.h> /* srand for shuffle */
 #include "deck.h" /* API statements */
 
-/* ------------------------------------------------------ define --------------------------------------------------------------------------------- */
+/* --------------- define --------------------- */
 
  /* in deck there is 52 cards */
 #define FULL_DECK_SIZE 52
@@ -13,7 +13,7 @@
  /* the rank is 13 */
 #define SIZE_RANK 13
 
-/* ------------------------------------------------------ struct ---------------------------------------------------------------------------------- */
+/* --------------- struct ----------------- */
 
 struct Deck
 {
@@ -22,7 +22,7 @@ struct Deck
 	size_t m_nCards;        /* actual number of cards */          
 };
 
-/* ------------------------------------------------------ local function -------------------------------------------------------------------------- */
+/* ----------- local function -------------- */
 
  /* destroy all the cards in the deck */
 static void DestroyCards(Deck *_deck);
@@ -32,9 +32,9 @@ static void SwapCard(Deck *_deck , int _indexOne , int _indexTwo );
 
 static void InitDeck(Deck *_newDeck);	
 
-/* ========================================================== Card API func ======================================================================= */
+/* =========== Card API func =============== */
 
-/* -----------------------------------------------------------Create Deck-------------------------------------------------------------------------- */
+/* ------------Create Deck------------------ */
 
 Deck* CreateDeck()
 {
@@ -60,7 +60,7 @@ Deck* CreateDeck()
 	return newDeck ;
 }
 
-/* -----------------------------------------------------------Destroy Deck------------------------------------------------------------------------- */
+/* -------------Destroy Deck------------------ */
 
 void DestroyDeck(Deck **_deck)
 {
@@ -72,7 +72,7 @@ void DestroyDeck(Deck **_deck)
 	}
 }
 
-/* -------------------------------------------------------Delete Card From Deck-------------------------------------------------------------------- */
+/* --------Delete Card From Deck-------------- */
 
 Card* GetCardFromDeck(Deck *_deck , int _index)
 {
@@ -83,7 +83,7 @@ Card* GetCardFromDeck(Deck *_deck , int _index)
 	return tmpPtrCard;
 }
 
-/* --------------------------------------------------------Set Card To Deck------------------------------------------------------------------------ */
+/* -----------Set Card To Deck-------------- */
 void SetCardToDeck(Deck *_deck , int _index , Card *_card)
 {
 	free(_deck -> m_arrayCards[_index]);
@@ -93,7 +93,7 @@ void SetCardToDeck(Deck *_deck , int _index , Card *_card)
 
 
 
-/* ---------------------------------------------------------Shuffle Deck--------------------------------------------------------------------------- */
+/* -------------Shuffle Deck---------------- */
 
 void ShuffleDeck(Deck *_deck)
 {
@@ -109,7 +109,7 @@ void ShuffleDeck(Deck *_deck)
 	} 
 }
 
-/* ------------------------------------------------------ local function -------------------------------------------------------------------------- */
+/* ----------- local function --------------- */
 
 static void DestroyCards(Deck *_deck)
 {
@@ -123,7 +123,7 @@ static void DestroyCards(Deck *_deck)
 		free ( _deck->m_arrayCards ) ;		
 }
 
-/* -------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------ */
 
 static void SwapCard(Deck *_deck , int _indexOne , int _indexTwo )
 {
@@ -135,7 +135,7 @@ static void SwapCard(Deck *_deck , int _indexOne , int _indexTwo )
 	
 }
 
-/* -------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------- */
 static void InitDeck(Deck *_newDeck)
 {
 	int suite , rank ;

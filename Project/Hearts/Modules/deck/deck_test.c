@@ -1,26 +1,26 @@
 #include <stdio.h> /* printf , NULL */
-#include "../include/deck.h" /* API statements */
+#include "deck.h" /* API statements */
 
-/* ========================================================== Local Variable ================================================================== */
+/* =========== Local Variable ========== */
  
  /* result test positive */
 static char s_pass[] = "pass";
  /* result test negitive */
 static char s_failed[] = "failed";
 
-/* ========================================================== Tests ============================================================================ */
+/* ============== Tests ================ */
 
-/* -------------------------------------------------Create Deck------------------------------------------------------ */
+/* -----------Create Deck--------------- */
 static void PositiveTestCreateDeckSize52();
 static void PositiveTestCreateDeckSize13();
 
-/* -------------------------------------------------Delete Card From Deck------------------------------------------------------ */
+/* -----Delete Card From Deck----------- */
 static void PositiveTestDeleteCard();
 
-/* -------------------------------------------------Set Card To Deck------------------------------------------------------ */
+/* -------Set Card To Deck------------- */
 static void PositiveTestSetCard();
 
-/* ========================================================== main ============================================================================== */
+/* ============ main ================== */
 int main()
 {
 	printf("Create deck tests :\n");
@@ -33,9 +33,9 @@ int main()
 	return 1;
 }
 
-/* ====================================================== Func Tests ============================================================================ */
+/* ============== Func Tests ========== */
 
-/* -------------------------------------------------Create Deck------------------------------------------------------ */
+/* --------------Create Deck----------- */
 static void PositiveTestCreateDeckSize52()
 {
 	Deck *ptrDeck ;
@@ -57,7 +57,7 @@ static void PositiveTestCreateDeckSize52()
 	DestroyDeck(&ptrDeck) ; 
 }
 
-/* ----------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------ */
 static void PositiveTestCreateDeckSize13()
 {
 	Deck *ptrDeck ;
@@ -79,7 +79,7 @@ static void PositiveTestCreateDeckSize13()
 	DestroyDeck(&ptrDeck) ;
 }
 
-/* -------------------------------------------------Delete Card From Deck------------------------------------------------------ */
+/* ---------Delete Card From Deck-------- */
 static void PositiveTestDeleteCard()
 {
 	Deck *ptrDeck ;
@@ -113,7 +113,7 @@ static void PositiveTestDeleteCard()
 }
 
 
-/* -------------------------------------------------Set Card To Deck------------------------------------------------------ */
+/* -------------Set Card To Deck------- */
 static void PositiveTestSetCard()
 {
 	Deck *ptrDeck ;
