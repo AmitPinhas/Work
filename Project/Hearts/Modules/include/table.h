@@ -69,6 +69,6 @@ void SetCardInTable(Table *_table , Card *_card , int _index);
 Card* GetCardInTable(Table *_table , int _index);
 /*--------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-void	CleanTable(Table *_table);
+void CleanTable(Table *_table);
 
 #endif /* __TABLE_H__ */
