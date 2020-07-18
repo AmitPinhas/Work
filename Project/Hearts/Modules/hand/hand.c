@@ -1,5 +1,5 @@
 #include <stdlib.h> /* allocation */
-#include "../include/hand.h" /* API statements */
+#include "hand.h" /* API statements */
 
 
 /* ------------------------------------------------------------ define ---------------------------------------------------------------------------- */
